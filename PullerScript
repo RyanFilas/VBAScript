@@ -1,0 +1,98 @@
+#each of these were different iterations to get closer to a working example.
+#Attempts to put information into a web site, and pull the information after the 
+#webpage loads the information
+
+#WORKS
+_______________________________
+Sub FillInternetForm()
+Dim IE As Object
+Set IE = CreateObject("InternetExplorer.Application")
+
+
+IE.navigate "https://www.npinumberlookup.org/"
+
+
+IE.Visible = True
+While IE.Busy
+DoEvents
+Wend
+IE.Document.All("npinum").Value = ThisWorkbook.Sheets("sheet1").Range("b2")
+Application.Wait Now + TimeValue("00:00:03")
+IE.Document.getelementbyid("submit").Click
+End Sub
+
+
+_____________________________.
+Not Functioning V- HERE DOWN -V
+
+Sub FillInternetForm()
+Dim IE As Object
+Set IE = CreateObject("InternetExplorer.Application")
+
+IE.Navigate "https://npiregistry.cms.hhs.gov/"
+
+IE.Visible = True
+
+While IE.busy
+DoEvents
+Wend
+
+IE.Document.All("id_number").Value = ThisWorkbook.Sheets(Sheet1).Range("B2")
+IE.Document.All("submit").Click
+End Sub
+___________________________________
+Sub FillInternetForm()
+Dim IE As Object
+Set IE = CreateObject("InternetExplorer.Application")
+
+IE.Navigate "https://npiregistry.cms.hhs.gov/"
+
+IE.Visible = True
+
+While IE.busy
+DoEvents
+Wend
+
+SendKeys "{tab}"
+SendKeys "1119991111"
+SendKeys "{enter}"
+
+End Sub
+________________________________________
+Sub FillInternetForm()
+Dim IE As Object
+Set IE = CreateObject("InternetExplorer.Application")
+
+
+IE.navigate "https://www.change.org/p/justice-for-cecil-the-iconic-collared-lion-slaughtered-by-trophy-hunter"
+
+
+IE.Visible = True
+While IE.Busy
+DoEvents
+Wend
+IE.document.all("first_name").Value = ThisWorkbook.Sheets("sheet1").Range("a1")
+IE.document.all("last_name").Value = ThisWorkbook.Sheets("sheet1").Range("a2")
+IE.document.all("email").Value = ThisWorkbook.Sheets("sheet1").Range("a3")
+
+IE.document.all("address").Value = ThisWorkbook.Sheets("sheet1").Range("a5")
+IE.document.all("postal_code").Value = ThisWorkbook.Sheets("sheet1").Range("a6")
+IE.document.all("message").Value = ThisWorkbook.Sheets("sheet1").Range("a7")
+End Sub
+________________________________________________
+
+Sub FillInternetForm()
+Dim IE As Object
+Set IE = CreateObject("InternetExplorer.Application")
+
+
+IE.navigate "https://npiregistry.cms.hhs.gov/"
+
+
+IE.Visible = True
+While IE.Busy
+DoEvents
+Wend
+IE.Document.All("number").Value = ThisWorkbook.Sheets("sheet1").Range("b2")
+IE.Document.All("submit").Click
+End Sub
